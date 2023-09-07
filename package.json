@@ -1,0 +1,36 @@
+{
+  "name": "logfield-client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.66.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "@codemirror/lang-markdown": "^6.2.0",
+    "@codemirror/language": "^6.9.0",
+    "@codemirror/state": "^6.2.1",
+    "@codemirror/view": "^6.18.0",
+    "@lezer/highlight": "^1.1.6",
+    "axios": "^1.5.0",
+    "codemirror": "^6.0.1",
+    "katex": "^0.16.8",
+    "lit-html": "^2.8.0",
+    "rehype-katex": "^6.0.3",
+    "rehype-stringify": "^9.0.4",
+    "remark-gfm": "^3.0.1",
+    "remark-math": "^5.1.1",
+    "remark-parse": "^10.0.2",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2",
+    "vis-data": "^7.1.6",
+    "vis-network": "^9.1.6"
+  }
+}
