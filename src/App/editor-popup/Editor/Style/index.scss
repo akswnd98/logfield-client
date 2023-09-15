@@ -1,0 +1,22 @@
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+
+  & > #edit-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+  & > #viewer {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+}

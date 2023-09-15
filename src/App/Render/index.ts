@@ -1,16 +1,17 @@
-import OwlComponent from '@/owl-mo/OwlComponent';
-import OwlOperator from '@/owl-mo/OwlOperator';
+import OwlComponent from '@/webowl/OwlComponent';
+import OwlManipulator from '@/webowl/OwlManipulator';
 import { html, render } from 'lit-html';
 
-export default class RenderApp extends OwlOperator<OwlComponent> {
-  render () {
+export default class RenderApp extends OwlManipulator {
+  async manipulate (component: OwlComponent) {
     render(
       html`
         <div id='root'>
-          hello world
           <div id='main'></div>
+          <div id='editor-popup'></div>
+          <div id='command-line-popup'></div>
         </div>
-      `, this.data.shadowRoot
+      `, component.shadowRoot
     );
   }
 }
