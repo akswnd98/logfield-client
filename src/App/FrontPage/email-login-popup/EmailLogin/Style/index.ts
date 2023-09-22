@@ -1,7 +1,7 @@
 import OwlStyle from '@/webowl/OwlManipulator/OwlStyle';
 import styles from './index.scss?inline';
 
-export default class StyleApp extends OwlStyle {
+export default class StyleEmailLogin extends OwlStyle {
   constructor () {
     super({ styles });
   }

@@ -1,17 +1,17 @@
 import OwlRenderIdTree, { IdTreeNodeType } from '@/webowl/OwlManipulator/OwlRenderIdTree';
-import RenderApp from './Render';
-import StyleApp from './Style';
+import RenderNav from './Render';
+import StyleNav from './Style';
 
 export type ConstructorParam = {
   idTreeNodes: IdTreeNodeType[];
 };
 
-export default class App extends OwlRenderIdTree {
+export default class Nav extends OwlRenderIdTree {
   constructor (payload: ConstructorParam) {
     super({
       manipulators: [
-        new RenderApp(),
-        new StyleApp()
+        new RenderNav(),
+        new StyleNav()
       ],
       idTreeNodes: payload.idTreeNodes
     });
