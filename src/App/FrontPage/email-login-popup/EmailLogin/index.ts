@@ -1,20 +1,29 @@
 import RenderLogin from './Render';
 import StyleLogin from './Style';
-import OwlContainerManipulator from '@/webowl/OwlManipulator/OwlContainerManipulator';
-import OwlManipulator from '@/webowl/OwlManipulator';
+import OwlRenderIdTree, { IdTreeNodeType } from '@/webowl/OwlManipulator/OwlRenderIdTree';
+import { emailLoginEmailModel } from '@/App/models';
+import { emailLoginComponent } from '@/App/components';
+import OwlRegisterInputModel from '@/webowl/OwlManipulator/OwlRegisterHandler/OwlRegisterInputModel';
+import RegisterEmailLoginButtonClick from './RegisterEmailLoginButtonClick';
 
 export type ConstructorParam = {
-  manipulators: OwlManipulator[];
+  idTreeNodes: IdTreeNodeType[];
 };
 
-export default class EmailLogin extends OwlContainerManipulator {
+export default class EmailLogin extends OwlRenderIdTree {
   constructor (payload: ConstructorParam) {
     super({
       manipulators: [
         new RenderLogin(),
         new StyleLogin(),
-        ...payload.manipulators
-      ]
+        new OwlRegisterInputModel({
+          id: 'email',
+          component: emailLoginComponent,
+          model: emailLoginEmailModel
+        }),
+        new RegisterEmailLoginButtonClick({ emailLoginEmailModel })
+      ],
+      idTreeNodes: payload.idTreeNodes
     });
   }
 }

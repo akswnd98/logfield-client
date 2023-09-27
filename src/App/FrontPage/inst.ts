@@ -1,19 +1,8 @@
-import FullScreenPopup from '@/Popup/FullScreenPopup';
 import FrontPage from '.';
-import { emailLoginComponent, frontPageMainComponent, loginEntryComponent, loginEntryPopupComponent, loginPopupComponent, socialLoginButtonComponent } from '../components';
-import FrontPageMain from './FrontPageMain';
-import {
-  emailLoginPopupModel,
-  loginEntryPopupModel,
-  emailLoginEmailModel
-} from '../models';
-import RegisterFullScreenPopupObserver from '@/Popup/FullScreenPopup/RegisterFullScreenPopupObserver';
-import EmailLogin from './email-login-popup/EmailLogin';
-import OwlRegisterInputModel from '@/webowl/OwlManipulator/OwlRegisterHandler/OwlRegisterInputModel';
-import RegisterEmailLoginButtonClick from './email-login-popup/EmailLogin/RegisterEmailLoginButtonClick';
-import LoginEntryInst from './login-entry-popup/LoginEntry/inst';
+import { frontPageMainComponent, loginEntryPopupComponent, loginPopupComponent } from '../components';
 import LoginEntryPopupInst from './login-entry-popup/inst';
 import EmailLoginPopupInst from './email-login-popup/inst';
+import FrontPageMainInst from './FrontPageMain/inst';
 
 export default class FrontPageInst extends FrontPage {
   constructor () {
@@ -21,9 +10,7 @@ export default class FrontPageInst extends FrontPage {
       idTreeNodes: [{
         id: 'main',
         component: frontPageMainComponent,
-        manipulator: new FrontPageMain({
-          idTreeNodes: []
-        })
+        manipulator: new FrontPageMainInst()
       }, {
         id: 'login-entry-popup',
         component: loginEntryPopupComponent,

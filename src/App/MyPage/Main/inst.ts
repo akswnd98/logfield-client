@@ -17,6 +17,7 @@ import {
 } from '@/App/MyPage/models';
 import RegisterDeleteEdgeClick from './context-menus/RegisterDeleteEdgeClick';
 import RegisterToggleEditEdgeModeClick from './context-menus/RegisterToggleEditEdgeModeClick';
+import OwlComponent from '@/webowl/OwlComponent';
 
 export default class MainInst extends Main {
   constructor () {
@@ -31,9 +32,10 @@ export default class MainInst extends Main {
         manipulator: new ContextMenu({
           model: nodeContextMenuModel,
           body: new ContextMenuBody({
-            manipulateMenuItems: [
-              new ContextMenuItem({
-                label: 'delete',
+            children: [{
+              component: new OwlComponent(),
+              manipulator: new ContextMenuItem({
+                label: '삭제',
                 additionalManipulators: [
                   new RegisterDeleteNodeClick({
                     contextedNodeModel,
@@ -42,7 +44,7 @@ export default class MainInst extends Main {
                   })
                 ]
               })
-            ]
+            }]
           }),
           bodyComponent: nodeContextMenuBodyComponent
         })
@@ -52,9 +54,10 @@ export default class MainInst extends Main {
         manipulator: new ContextMenu({
           model: edgeContextMenuModel,
           body: new ContextMenuBody({
-            manipulateMenuItems: [
-              new ContextMenuItem({
-                label: 'delete',
+            children: [{
+              component: new OwlComponent(),
+              manipulator: new ContextMenuItem({
+                label: '삭제',
                 additionalManipulators: [
                   new RegisterDeleteEdgeClick({
                     contextedEdgeModel,
@@ -63,7 +66,7 @@ export default class MainInst extends Main {
                   })
                 ]
               })
-            ]
+            }]
           }),
           bodyComponent: edgeContextMenuBodyComponent
         })
@@ -73,14 +76,15 @@ export default class MainInst extends Main {
         manipulator: new ContextMenu({
           model: backgroundContextMenuModel,
           body: new ContextMenuBody({
-            manipulateMenuItems: [
-              new ContextMenuItem({
-                label: 'toggle edit edge mode',
+            children: [{
+              component: new OwlComponent(),
+              manipulator: new ContextMenuItem({
+                label: '엣지 모드',
                 additionalManipulators: [
                   new RegisterToggleEditEdgeModeClick({ editEdgeModeModel })
                 ]
               })
-            ]
+            }]
           }),
           bodyComponent: backgroundContextMenuBodyComponent
         })

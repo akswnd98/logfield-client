@@ -1,19 +1,20 @@
-import OwlRenderIdTree, { IdTreeNodeType } from '@/webowl/OwlManipulator/OwlRenderIdTree';
-import RenderNav from './Render';
 import StyleNav from './Style';
+import OwlRootContainer from '@/webowl/OwlManipulator/OwlRenderContainer/OwlRootContainer';
+import OwlDefaultLayout from '@/webowl/OwlManipulator/OwlRenderContainer/OwlLayout/OwlDefaultLayout';
+import { ChildType } from '@/webowl/OwlManipulator/OwlRenderContainer';
 
 export type ConstructorParam = {
-  idTreeNodes: IdTreeNodeType[];
+  children: ChildType[];
 };
 
-export default class Nav extends OwlRenderIdTree {
+export default class Nav extends OwlRootContainer {
   constructor (payload: ConstructorParam) {
     super({
+      layout: new OwlDefaultLayout(),
+      children: payload.children,
       manipulators: [
-        new RenderNav(),
         new StyleNav()
-      ],
-      idTreeNodes: payload.idTreeNodes
-    });
+      ]
+    })
   }
 }

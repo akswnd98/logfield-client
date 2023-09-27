@@ -17,7 +17,7 @@ export default class RenderContextMenuItem extends OwlManipulator {
   async manipulate (component: OwlComponent) {
     render(
       html`
-        <div id='root'>${this.label}</div>
+        <div id='root'><div id='main'>${this.label}</div></div>
       `, component.shadowRoot
     );
   }

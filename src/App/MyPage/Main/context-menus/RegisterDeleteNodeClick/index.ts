@@ -1,5 +1,6 @@
 import GraphModel from '@/App/MyPage/GraphModel';
 import DeleteNode from '@/App/MyPage/GraphModel/DeleteNode';
+import { nodeContextMenuModel } from '@/App/MyPage/models';
 import { VisNodeType } from '@/utils/vis/types';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 import OwlSimpleModel from '@/webowl/OwlSimpleModel';
@@ -28,6 +29,7 @@ export default class RegisterDeleteNodeClick extends OwlRegisterHandler<'click'>
     try {
       const nodeId = this.contextedNodeModel.getData();
       await this.graphModel.operate(new DeleteNode({ id: nodeId, nodes: this.nodes }));
+      nodeContextMenuModel.setData({ mode: false, x: '0', y: '0'});
     } catch (e) {
       console.log(e);
       throw 'RegisterClick failed';

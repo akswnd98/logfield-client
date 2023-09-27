@@ -4,30 +4,24 @@ import StyleContextMenuBody from './StyleContextMenuBody';
 import OwlManipulator from '@/webowl/OwlManipulator';
 import OwlComponent from '@/webowl/OwlComponent';
 import ContextMenuItem from './ContextMenuItem';
+import OwlRootContainer from '@/webowl/OwlManipulator/OwlRenderContainer/OwlRootContainer';
+import ContextMenuLayout from './ContextMenuLayout';
+import { ChildType } from '@/webowl/OwlManipulator/OwlRenderContainer';
 
 export type ConstructorParam = {
-  manipulateMenuItems: ContextMenuItem[];
+  children: ChildType[];
+  // manipulateMenuItems: ContextMenuItem[];
 };
 
-export default class ContextMenuBody extends OwlContainerManipulator {
-  protected manipulateMenuItems: OwlManipulator[];
-
+export default class ContextMenuBody extends OwlRootContainer {
   constructor (payload: ConstructorParam) {
     super({
+      layout: new ContextMenuLayout(),
       manipulators: [
         new RenderContextMenuBody(),
         new StyleContextMenuBody()
-      ]
+      ],
+      children: payload.children
     });
-    this.manipulateMenuItems = payload.manipulateMenuItems;
-  }
-
-  async manipulate (component: OwlComponent) {
-    await super.manipulate(component);
-    for (let manipulateMenuItem of this.manipulateMenuItems) {
-      const itemComponent = new OwlComponent();
-      await manipulateMenuItem.manipulate(itemComponent);
-      component.shadowRoot.getElementById('root')!.appendChild(itemComponent);
-    }
   }
 }

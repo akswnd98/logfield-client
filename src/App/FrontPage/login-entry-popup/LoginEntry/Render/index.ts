@@ -1,14 +1,18 @@
 import OwlComponent from '@/webowl/OwlComponent';
-import OwlManipulator from '@/webowl/OwlManipulator';
 import { html, render } from 'lit-html';
+import OwlManipulator from '@/webowl/OwlManipulator';
 
 export default class RenderLoginEntry extends OwlManipulator {
   async manipulate (component: OwlComponent) {
     render(
       html`
         <div id='root'>
-        <div id='email-login-button'></div>
-          <div id='social-login-button'></div>
+          <div id='main'>
+            <div id='label'>logfield</div>
+            <div id='email-login-button'></div>
+            <div id='social-login-button'></div>
+          </div>
+          <div id='logo'></div>
         </div>
       `, component.shadowRoot
     );

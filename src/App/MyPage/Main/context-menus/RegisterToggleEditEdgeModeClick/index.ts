@@ -1,6 +1,6 @@
+import { backgroundContextMenuModel } from '@/App/MyPage/models';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 import OwlSimpleModel from '@/webowl/OwlSimpleModel';
-import { Network } from 'vis-network';
 
 export type ConstructorParam = {
   editEdgeModeModel: OwlSimpleModel<boolean>;
@@ -18,6 +18,7 @@ export default class RegisterToggleEditEdgeModeClick extends OwlRegisterHandler<
   async handle (event: MouseEvent) {
     try {
       this.editEdgeModeModel.setData(!this.editEdgeModeModel.getData());
+      backgroundContextMenuModel.setData({ mode: false, x: '0', y: '0'});
     } catch (e) {
       console.log(e);
       throw 'RegisterToggleEditModeClick failed';

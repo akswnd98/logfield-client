@@ -1,5 +1,6 @@
 import GraphModel from '@/App/MyPage/GraphModel';
 import DeleteEdge from '@/App/MyPage/GraphModel/DeleteEdge';
+import { edgeContextMenuModel } from '@/App/MyPage/models';
 import { VisEdgeType } from '@/utils/vis/types';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 import OwlSimpleModel from '@/webowl/OwlSimpleModel';
@@ -28,6 +29,7 @@ export default class RegisterDeleteEdgeClick extends OwlRegisterHandler<'click'>
     try {
       const edgeId = this.contextedEdgeModel.getData();
       await this.graphModel.operate(new DeleteEdge({ id: edgeId, edges: this.edges }));
+      edgeContextMenuModel.setData({ mode: false, x: '0', y: '0'});
     } catch (e) {
       console.log(e);
       throw 'RegisterClick failed';

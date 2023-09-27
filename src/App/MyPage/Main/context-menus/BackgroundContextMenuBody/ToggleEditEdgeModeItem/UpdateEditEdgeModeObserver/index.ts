@@ -14,8 +14,7 @@ export default class UpdateEditEdgeModeObserver extends OwlObserver<boolean> {
   }
 
   async observe (data: boolean) {
-    if (!data) {
-      this.network.enableEditMode();
+    if (data) {
       this.network.addEdgeMode();
     } else {
       this.network.disableEditMode();

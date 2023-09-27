@@ -1,0 +1,19 @@
+#root {
+  width: calc(100% - 25%);
+  padding-top: 200px;
+  padding-bottom: 200px;
+  padding-left: 25%;
+  background-color: #ECF9FF;
+  #first {
+    font-size: 52px;
+    font-weight: 400;
+  }
+  #second {
+    font-size: 52px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  #third {
+    font-weight: 400;
+  }
+}

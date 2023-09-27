@@ -39,6 +39,7 @@ import UpdateEditorObserver from './editor-id-model/UpdateEditorObserver';
 import UpdateTitleObserver from './command-line-popup/CommandLine/UpdateTitleObserver';
 import RegisterCommandLineShortKey from '@/RegisterWindowHandler/RegisterCommandLineShortKey';
 import UpdateEditEdgeModeObserver from './Main/context-menus/BackgroundContextMenuBody/ToggleEditEdgeModeItem/UpdateEditEdgeModeObserver';
+import MyPageNetwork from './models/MyPageNetwork';
 
 export const doAfterMyPageConstruct = async () => {
   const network = new Network(
@@ -47,8 +48,10 @@ export const doAfterMyPageConstruct = async () => {
     }, {
       manipulation: {
         addEdge: async function (edgeData: any, callback: any) {
-          await createEdge(edgeData.from, edgeData.to);
-          callback(edgeData);
+          const res = await createEdge(edgeData.from, edgeData.to);
+          edges.add({ id: res.id, from: edgeData.from, to: edgeData.to });
+          editEdgeModeModel.setData(false);
+          callback(null);
         }
       },
       layout: {
@@ -70,6 +73,7 @@ export const doAfterMyPageConstruct = async () => {
       }
     }
   );
+  MyPageNetwork.setInstance(network);
 
   await graphModel.operate(new InitNodes({ nodes }));
   await graphModel.operate(new InitEdges({ edges }));

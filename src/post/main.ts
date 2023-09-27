@@ -3,7 +3,6 @@ import Page from './Page';
 import './index.scss';
 import Title from './Page/Title';
 import Body from './Page/Body';
-import { html, render } from 'lit-html';
 import find from '@/utils/api/post/find';
 
 const root = document.getElementById('root')!;

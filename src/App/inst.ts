@@ -2,7 +2,7 @@ import App from '.';
 import { myPageComponent } from './MyPage/components';
 import MyPageInst from './MyPage/inst';
 import NavInst from './Nav/inst';
-import { frontPageComponent, mainComponent, navComponent } from './components';
+import { backgroundComponent, frontPageComponent, mainComponent, navComponent } from './components';
 import FrontPageInst from './FrontPage/inst';
 import OwlRouter from '@/webowl/OwlManipulator/OwlRouter';
 

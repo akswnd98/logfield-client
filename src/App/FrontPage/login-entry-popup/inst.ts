@@ -1,8 +1,8 @@
 import FullScreenPopup from '@/Popup/FullScreenPopup';
-import LoginEntryInst from './LoginEntry/inst';
 import { loginEntryComponent } from '@/App/components';
 import RegisterFullScreenPopupObserver from '@/Popup/FullScreenPopup/RegisterFullScreenPopupObserver';
 import { loginEntryPopupModel } from '@/App/models';
+import LoginEntryInst from './LoginEntry/inst';
 
 export default class LoginEntryPopupInst extends FullScreenPopup {
   constructor () {

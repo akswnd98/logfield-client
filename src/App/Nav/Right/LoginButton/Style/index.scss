@@ -1,0 +1,11 @@
+#root {
+  width: 120px;
+  height: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
