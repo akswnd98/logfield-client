@@ -1,3 +1,4 @@
+import { avatarContextModel } from '@/App/models';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 
 export default class RegisterAvatarClick extends OwlRegisterHandler<'click'> {
@@ -8,6 +9,10 @@ export default class RegisterAvatarClick extends OwlRegisterHandler<'click'> {
   }
 
   async handle (event: MouseEvent) {
-    location.href = '/my-page/';
+    avatarContextModel.setData({
+      mode: !avatarContextModel.getData().mode,
+      x: 'calc(100% - 280px)',
+      y: '120px'
+    });
   }
 }
