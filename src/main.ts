@@ -7,20 +7,20 @@ import { userProfileModel } from './App/models';
 import getMyProfile from './utils/api/user/getMyProfile';
 import { refresh } from './utils/refresh';
 
-if (/^\/login$/.test(location.pathname)) {
-  const params = new URLSearchParams(location.search);
-  const uuid = params.get('uuid');
-  if (uuid !== null) {
-    const res = await login(uuid);
-    localStorage.setItem('accessToken', res.accessToken);
-    localStorage.setItem('refreshToken', res.refreshToken);
-  }
-  location.href = '/';
-}
-
 const root = document.getElementById('root')!;
 
 (async () => {
+  if (/^\/login$/.test(location.pathname)) {
+    const params = new URLSearchParams(location.search);
+    const uuid = params.get('uuid');
+    if (uuid !== null) {
+      const res = await login(uuid);
+      localStorage.setItem('accessToken', res.accessToken);
+      localStorage.setItem('refreshToken', res.refreshToken);
+    }
+    location.href = '/';
+  }
+
   try {
     await userProfileModel.setData(await getMyProfile());
   } catch (e) {
