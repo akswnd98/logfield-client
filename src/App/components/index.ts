@@ -19,3 +19,4 @@ export const navIntroComponent = new OwlComponent();
 export const navGithubComponent = new OwlComponent();
 export const navRightComponent = new OwlComponent();
 export const backgroundComponent = new OwlComponent();
+export const emailSignupComponent = new OwlComponent();

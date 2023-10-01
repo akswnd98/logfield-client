@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from '@/environment';
 import logout from '@/utils/api/logout';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 
@@ -16,7 +17,7 @@ export default class RegisterLogoutClick extends OwlRegisterHandler<'click'> {
       }
       await logout(refreshToken);
       localStorage.clear();
-      location.href = '/';
+      location.href = `${PUBLIC_URL}`;
     } catch (e) {
       console.log(e);
       throw 'RegisterLogoutClick failed';

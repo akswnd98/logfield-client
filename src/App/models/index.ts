@@ -7,3 +7,6 @@ export const emailLoginPopupModel = new OwlSimpleModel<boolean>({ initialData: f
 export const emailLoginEmailModel = new OwlSimpleModel<string>({ initialData: '', observers: [] });
 export const userProfileModel = new OwlSimpleModel<GetMyProfileResponse>({ initialData: { id: -1, email: '', nickname: '' }, observers: [] });
 export const avatarContextModel = new OwlSimpleModel<ContextMenuModelType>({ initialData: { mode: false, x: '0', y: '0' }, observers: [] });
+export const emailSignupPopupModel = new OwlSimpleModel<boolean>({ initialData: false, observers: [] });
+export const emailSignupEmailModel = new OwlSimpleModel<string>({initialData: '', observers: [] });
+export const emailSignupNicknameModel = new OwlSimpleModel<string>({initialData: '', observers: [] });

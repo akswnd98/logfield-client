@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from '@/environment';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 
 export default class RegisterMyPageClick extends OwlRegisterHandler<'click'> {
@@ -8,6 +9,6 @@ export default class RegisterMyPageClick extends OwlRegisterHandler<'click'> {
   }
 
   async handle (event: MouseEvent) {
-    location.href = '/my-page/';
+    location.href = `${PUBLIC_URL}/my-page/`;
   }
 }

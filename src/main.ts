@@ -6,6 +6,8 @@ import AppInst from './App/inst';
 import { userProfileModel } from './App/models';
 import getMyProfile from './utils/api/user/getMyProfile';
 import { refresh } from './utils/refresh';
+import { PUBLIC_URL } from './environment';
+import signup from './utils/api/signup';
 
 const root = document.getElementById('root')!;
 
@@ -18,7 +20,15 @@ const root = document.getElementById('root')!;
       localStorage.setItem('accessToken', res.accessToken);
       localStorage.setItem('refreshToken', res.refreshToken);
     }
-    location.href = '/';
+    location.href = `${PUBLIC_URL}/`;
+  }
+  if (/^\/signup$/.test(location.pathname)) {
+    const params = new URLSearchParams(location.search);
+    const uuid = params.get('uuid');
+    if (uuid !== null) {
+      await signup(uuid);
+    }
+    location.href = `${PUBLIC_URL}/`;
   }
 
   try {

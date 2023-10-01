@@ -6,6 +6,7 @@ import RegisterEmailLoginPopupButtonClick from './EmailLoginButton/RegisterEmail
 import { emailLoginPopupModel } from '@/App/models';
 import OwlComponent from '@/webowl/OwlComponent';
 import LogoButton from '@/LogoButton';
+import EmailSignupButton from './EmailSignupButton';
 
 export default class LoginEntryInst extends LoginEntry {
   constructor () {
@@ -21,12 +22,18 @@ export default class LoginEntryInst extends LoginEntry {
           ]
         })
       }, {
-        id: 'social-login-button',
-        component: socialLoginButtonComponent,
-        manipulator: new SocialLoginButton({
-          manipulators: []
-        })
-      }, {
+        id: 'email-signup-button',
+        component: new OwlComponent(),
+        manipulator: new EmailSignupButton()
+      },
+      // {
+      //   id: 'social-login-button',
+      //   component: socialLoginButtonComponent,
+      //   manipulator: new SocialLoginButton({
+      //     manipulators: []
+      //   })
+      // },
+      {
         id: 'logo',
         component: new OwlComponent(),
         manipulator: new LogoButton()

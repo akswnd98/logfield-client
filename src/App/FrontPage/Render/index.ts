@@ -10,6 +10,7 @@ export default class RenderFrontPage extends OwlManipulator {
           <div id='main'></div>
           <div id='login-entry-popup'></div>
           <div id='email-login-popup'></div>
+          <div id='email-signup-popup'></div>
         </div>
       `, component.shadowRoot
     );

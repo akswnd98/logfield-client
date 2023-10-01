@@ -1,17 +1,17 @@
 import OwlComponent from '@/webowl/OwlComponent';
 import OwlManipulator from '@/webowl/OwlManipulator';
 import { html, render } from 'lit-html';
-import logfieldLogo from '@svgs/logfield-logo.svg';
 
-export default class RenderEmailLogin extends OwlManipulator {
+export default class RenderEmailSignup extends OwlManipulator {
   async manipulate (component: OwlComponent) {
     render(
       html`
         <div id='root'>
           <div id='main'>
-            <div id='label'>로그인</div>
+            <div id='label'>회원가입</div>
             <input id='email' placeholder='이메일'></input>
-            <div id='login-button'>로그인</div>
+            <input id='nickname' placeholder='닉네임'></input>
+            <div id='signup-button'>회원가입</div>
           </div>
           <div id='logo'></div>
         </div>

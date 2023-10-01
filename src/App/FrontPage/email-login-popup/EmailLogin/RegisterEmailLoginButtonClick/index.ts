@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from '@/environment';
 import requestLoginCertification from '@/utils/api/login/requestCertification';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 import OwlSimpleModel from '@/webowl/OwlSimpleModel';
@@ -18,6 +19,6 @@ export default class RegisterEmailLoginButtonClick extends OwlRegisterHandler<'c
 
   async handle (event: MouseEvent) {
     await requestLoginCertification(this.emailLoginEmailModel.getData());
-    location.href = '/';
+    location.href = `${PUBLIC_URL}`;
   }
 }

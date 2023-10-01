@@ -11,6 +11,7 @@ export default class RenderLoginEntry extends OwlManipulator {
             <div id='label'>logfield</div>
             <div id='email-login-button'></div>
             <div id='social-login-button'></div>
+            <div id='email-signup-button'></div>
           </div>
           <div id='logo'></div>
         </div>

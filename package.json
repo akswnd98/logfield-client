@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://akswnd98.github.io/logfield-client/",
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "sass": "^1.66.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"

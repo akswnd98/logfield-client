@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from '@/environment';
+import { emailSignupPopupModel, loginEntryPopupModel } from '@/App/models';
 import OwlRegisterHandler from '@/webowl/OwlManipulator/OwlRegisterHandler';
 
 export default class RegisterClick extends OwlRegisterHandler<'click'> {
@@ -9,6 +9,7 @@ export default class RegisterClick extends OwlRegisterHandler<'click'> {
   }
 
   async handle (event: MouseEvent) {
-    location.href = `${PUBLIC_URL}`;
+    await loginEntryPopupModel.setData(false);
+    await emailSignupPopupModel.setData(true);
   }
 }
