@@ -1,4 +1,4 @@
-var y=Object.defineProperty;var p=(t,e,s)=>e in t?y(t,e,{enumerable:!0,configurable:!0,writable:!0,value:s}):t[e]=s;var n=(t,e,s)=>(p(t,typeof e!="symbol"?e+"":e,s),s);import{b as i,D as r,x as a,d as o,e as l,c as w,s as m,O as d,f as h}from"./katex.min-95e219e3.js";class b extends i{async manipulate(e){r(a`
+var y=Object.defineProperty;var p=(t,e,s)=>e in t?y(t,e,{enumerable:!0,configurable:!0,writable:!0,value:s}):t[e]=s;var n=(t,e,s)=>(p(t,typeof e!="symbol"?e+"":e,s),s);import{b as i,D as r,x as a,d as o,e as l,c as w,s as m,O as d,f as h}from"./katex.min-d9a66969.js";class b extends i{async manipulate(e){r(a`
         <div id='root'>
           <div id='title'></div>
           <div id='body'></div>
