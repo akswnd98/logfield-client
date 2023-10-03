@@ -17,7 +17,7 @@ export default class RegisterLogoutClick extends OwlRegisterHandler<'click'> {
       }
       await logout(refreshToken);
       localStorage.clear();
-      location.href = `${PUBLIC_URL}`;
+      location.href = `${PUBLIC_URL}/`;
     } catch (e) {
       console.log(e);
       throw 'RegisterLogoutClick failed';

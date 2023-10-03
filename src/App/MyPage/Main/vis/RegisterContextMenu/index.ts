@@ -1,3 +1,4 @@
+import { contextedEdgeModel, contextedNodeModel, edgeContextMenuModel, nodeContextMenuModel } from '@/App/MyPage/models';
 import ContextMenuModelType from '@/Popup/ContextMenu/ContextMenuModelType';
 import VisRegisterHandler from '@/VisManipulator/VisRegisterHandler';
 import OwlSimpleModel from '@/webowl/OwlSimpleModel';
@@ -10,29 +11,31 @@ export type ConstructorParam = {
   contextedNodeModel: OwlSimpleModel<number>;
 };
 
-export default class RegisterNodeContextMenu extends VisRegisterHandler<'oncontext'> {
+export default class RegisterContextMenu extends VisRegisterHandler<'oncontext'> {
   protected eventName: 'oncontext' = 'oncontext';
   protected network: Network;
   protected contextMenuModels: OwlSimpleModel<ContextMenuModelType>[];
-  protected nodeContextMenuModel: OwlSimpleModel<ContextMenuModelType>;
-  protected contextedNodeModel: OwlSimpleModel<number>;
 
   constructor (payload: ConstructorParam) {
     super();
     this.network = payload.network;
     this.contextMenuModels = payload.contextMenuModels;
-    this.nodeContextMenuModel = payload.nodeContextMenuModel;
-    this.contextedNodeModel = payload.contextedNodeModel;
   }
 
   protected async handle (params: any) {
     params.event.preventDefault();
     params.event.stopPropagation();
-    if (params.nodes.length <= 0) {
+    if (params.nodes.length > 0) {
+      await Promise.all(this.contextMenuModels.map((model) => { model.setData({ mode: false, x: '0', y: '0' }) }));
+      await nodeContextMenuModel.setData({ mode: true, x: `${params.pointer.DOM.x}px`, y: `${params.pointer.DOM.y}px` });
+      await contextedNodeModel.setData(Number(params.nodes[0]));
       return;
     }
-    await Promise.all(this.contextMenuModels.map((model) => { model.setData({ mode: false, x: '0', y: '0' }) }));
-    await this.nodeContextMenuModel.setData({ mode: true, x: `${params.pointer.DOM.x}px`, y: `${params.pointer.DOM.y}px` });
-    await this.contextedNodeModel.setData(Number(params.nodes[0]));
+    if (params.edges.length > 0) {
+      await Promise.all(this.contextMenuModels.map((model) => { model.setData({ mode: false, x: '0', y: '0' }) }));
+      await edgeContextMenuModel.setData({ mode: true, x: `${params.pointer.DOM.x}px`, y: `${params.pointer.DOM.y}px` });
+      await contextedEdgeModel.setData(params.edges[0]);
+      return;
+    }
   }
 }

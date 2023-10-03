@@ -12,7 +12,7 @@ import signup from './utils/api/signup';
 const root = document.getElementById('root')!;
 
 (async () => {
-  if (/^\/login$/.test(location.pathname)) {
+  if (new RegExp(`^${PUBLIC_URL}/login$`).test(location.pathname)) {
     const params = new URLSearchParams(location.search);
     const uuid = params.get('uuid');
     if (uuid !== null) {
@@ -22,7 +22,7 @@ const root = document.getElementById('root')!;
     }
     location.href = `${PUBLIC_URL}/`;
   }
-  if (/^\/signup$/.test(location.pathname)) {
+  if (new RegExp(`^${PUBLIC_URL}/signup$`).test(location.pathname)) {
     const params = new URLSearchParams(location.search);
     const uuid = params.get('uuid');
     if (uuid !== null) {
@@ -43,7 +43,7 @@ const root = document.getElementById('root')!;
 
   root.appendChild(appComponent);
   await new AppInst().manipulate(appComponent);
-  if (/^\/my-page\/$/.test(location.pathname)) {
+  if (new RegExp(`^${PUBLIC_URL}/my-page/$`).test(location.pathname)) {
     await doAfterMyPageConstruct();
   }
 })();

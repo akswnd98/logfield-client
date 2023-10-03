@@ -3,6 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   root: '',
+  base: '/logfield-client/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -17,5 +18,5 @@ export default defineConfig({
         post: path.resolve(__dirname, 'post/index.html')
       }
     }
-  }
+  },
 });

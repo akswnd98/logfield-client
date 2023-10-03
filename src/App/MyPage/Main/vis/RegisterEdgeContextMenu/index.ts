@@ -24,7 +24,7 @@ export default class RegisterEdgeContextMenu extends VisRegisterHandler<'onconte
   protected async handle (params: any) {
     params.event.preventDefault();
     params.event.stopPropagation();
-    if (params.edges.length <= 0) {
+    if (params.edges.length <= 0 || params.nodes.length > 0) {
       return;
     }
     await this.contextedEdgeModel.setData(params.edges[0]);

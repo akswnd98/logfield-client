@@ -18,6 +18,7 @@ import {
 import RegisterDeleteEdgeClick from './context-menus/RegisterDeleteEdgeClick';
 import RegisterToggleEditEdgeModeClick from './context-menus/RegisterToggleEditEdgeModeClick';
 import OwlComponent from '@/webowl/OwlComponent';
+import RegisterGotoPageClick from './context-menus/RegisterGotoPageClick';
 
 export default class MainInst extends Main {
   constructor () {
@@ -33,6 +34,14 @@ export default class MainInst extends Main {
           model: nodeContextMenuModel,
           body: new ContextMenuBody({
             children: [{
+              component: new OwlComponent(),
+              manipulator: new ContextMenuItem({
+                label: '페이지로 가기',
+                additionalManipulators: [
+                  new RegisterGotoPageClick()
+                ]
+              })
+            }, {
               component: new OwlComponent(),
               manipulator: new ContextMenuItem({
                 label: '삭제',

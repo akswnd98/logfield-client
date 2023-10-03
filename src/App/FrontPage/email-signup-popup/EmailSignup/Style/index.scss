@@ -17,10 +17,10 @@
     #email {
       width: calc(100% - 6px);
       height: 60px;
-      margin-bottom: 20px;
       border-width: 0.5px;
       border-style: solid;
       border-color: rgba(0, 0, 0, 25%);
+      border-bottom-width: 0px;
     }
     #nickname {
       width: calc(100% - 6px);
@@ -47,5 +47,10 @@
     align-items: center;
     margin-top: 280px;
     width: 400px;
+  }
+  #logo {
+    position: fixed;
+    left: 80px;
+    top: 60px;
   }
 }

@@ -12,7 +12,7 @@ export default class EmailSignup extends OwlRenderIdTree {
   constructor () {
     super({
       idTreeNodes: [{
-        id: 'email',
+        id: 'logo',
         component: new OwlComponent(),
         manipulator: new LogoButton()
       }],

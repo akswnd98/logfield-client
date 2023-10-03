@@ -9,6 +9,6 @@ export default class RegisterClick extends OwlRegisterHandler<'click'> {
   }
 
   async handle (event: MouseEvent) {
-    location.href = `${PUBLIC_URL}`;
+    location.href = `${PUBLIC_URL}/`;
   }
 }

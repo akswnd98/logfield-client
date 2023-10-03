@@ -19,6 +19,6 @@ export default class RegisterEmailLoginButtonClick extends OwlRegisterHandler<'c
 
   async handle (event: MouseEvent) {
     await requestLoginCertification(this.emailLoginEmailModel.getData());
-    location.href = `${PUBLIC_URL}`;
+    location.href = `${PUBLIC_URL}/`;
   }
 }

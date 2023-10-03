@@ -5,6 +5,7 @@ import NavInst from './Nav/inst';
 import { backgroundComponent, frontPageComponent, mainComponent, navComponent } from './components';
 import FrontPageInst from './FrontPage/inst';
 import OwlRouter from '@/webowl/OwlManipulator/OwlRouter';
+import { PUBLIC_URL } from '@/environment';
 
 export default class AppInst extends App {
   constructor () {
@@ -18,11 +19,11 @@ export default class AppInst extends App {
         component: mainComponent,
         manipulator: new OwlRouter({
           routes: [{
-            pattern: /^\/$/,
+            pattern: new RegExp(`^${PUBLIC_URL}/$`),
             component: frontPageComponent,
             manipulator: new FrontPageInst()
           }, {
-            pattern: /^\/my-page\/$/,
+            pattern: new RegExp(`^${PUBLIC_URL}/my-page/$`),
             component: myPageComponent,
             manipulator: new MyPageInst()
           }]
